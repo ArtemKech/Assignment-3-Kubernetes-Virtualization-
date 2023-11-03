@@ -33,6 +33,10 @@ def details():
     response = {"Response from host": f"{hostname} with IP Address {ip}"}
     return jsonify(response)
 
+@app.route("/newbuild_1")
+def new_build():
+    return "New build 1 (Testing trigger)"
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',debug=True)
