@@ -35,6 +35,7 @@ def details():
 
 @app.route("/deployment_check_1")
 def deployment_check_1():
+    # check
     return "Deployment check 1 is successful"
 
 if __name__ == "__main__":
