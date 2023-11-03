@@ -14,7 +14,7 @@ steps:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1'
   - 'CLOUDSDK_CONTAINER_CLUSTER=gke_vast-service-390209_us-central1_staging'
 images:
-  - 'gcr.io/your-project-id/flask-app-image:$COMMIT_SHA'
+  - 'gcr.io/vast-service-390209/flask-app-image:$COMMIT_SHA=$(git rev-parse --short HEAD)'
 substitutions:
   _CLUSTER_NAME: staging
   
