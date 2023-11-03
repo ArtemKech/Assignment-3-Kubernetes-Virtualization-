@@ -33,6 +33,9 @@ def details():
     response = {"Response from host": f"{hostname} with IP Address {ip}"}
     return jsonify(response)
 
+@app.route("/deployment_check_1")
+def deployment_check_1():
+    return "Deployment check 1 is successful"
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',debug=True)
