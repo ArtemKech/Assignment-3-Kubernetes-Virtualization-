@@ -255,11 +255,10 @@ logsBucket: 'gs://logs-fadsladasasdsk-asadspp-budasdsckedst'
 
 ### CI/CD Pipeline Configuration
 Create the trigger & Link GitHub repository to your trigger
-Once the changes to your branch done, it should show up on the list in triggers section:
+![image](https://github.com/ArtemKech/Assignment-3-Kubernetes-Virtualization-/assets/84817894/86bd51b3-790c-4397-b4f5-32167e055c88)
+Once the changes to your branch made, it should show up on the list in triggers section:
 ![image](https://github.com/ArtemKech/Assignment-3-Kubernetes-Virtualization-/assets/84817894/7703cf21-fbe3-44d2-bc53-980280fa46fd)
 
-
-![image](https://github.com/ArtemKech/Assignment-3-Kubernetes-Virtualization-/assets/84817894/86bd51b3-790c-4397-b4f5-32167e055c88)
 
 # Checking deployment
 
