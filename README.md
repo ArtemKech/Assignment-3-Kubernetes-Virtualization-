@@ -143,11 +143,21 @@ docker build -t flask-app-image .
 
 ---
 
+### Create and Run a container from an image
+
+```docker
+docker run -d --name flask-app-container flask-app-image
+```
+![image](https://github.com/ArtemKech/Assignment-3-Kubernetes-Virtualization-/assets/84817894/d04020c5-7ced-492b-b2b8-43ac37c6680a)
+
+---
+
 ### Tag the Docker image with the registry path
 
 ```docker
 docker tag flask-app-image:latest gcr.io/vast-service-390209/flask-app:latest
 ```
+![image](https://github.com/ArtemKech/Assignment-3-Kubernetes-Virtualization-/assets/84817894/cc3787b7-9d79-4bce-b6cf-58209464bb73)
 
 ---
 
@@ -222,6 +232,8 @@ kubectl apply -f flask-app-service.yaml
 ```
 ![image](https://github.com/ArtemKech/Assignment-3-Kubernetes-Virtualization-/assets/84817894/3778f05e-5385-4ba5-bb69-809b2c3f0046)
 
+---
+
 # Set up a CI/CD pipeline
 
 ### Enabled Google Cloud Build API
@@ -284,5 +296,21 @@ kubectl get services
 ```shell
 http://external_ip
 ```
+
+# Error with Pods deployment
+![image](https://github.com/ArtemKech/Assignment-3-Kubernetes-Virtualization-/assets/84817894/c86642ac-76ad-46fb-9797-e4ea56fa3e12)
+
+That means that it's trying to set the value that doesn't exist. However my code has `.env` file set with right variables, we can see it in the repo:
+![image](https://github.com/ArtemKech/Assignment-3-Kubernetes-Virtualization-/assets/84817894/7f50587b-a45d-4bf6-9665-2db135faa302)
+
+If the container fails to run due to the lack of values, we can check if it gets the recent changes after pushing commit. 
+![image](https://github.com/ArtemKech/Assignment-3-Kubernetes-Virtualization-/assets/84817894/34fde9f4-6a1f-4b9b-9f68-ef4fa734ecef)
+
+Yes, it does pull the latest changes. Therefore `.env` file should be with the rest of the files and it should get right values.
+The error message in trigger says that the error occured because "there's an issue with the configuration of your Cloud Build trigger. Specifically, it's related to the logs configuration". Let's check if the trigger uses `cloudbuild.yaml`:
+![image](https://github.com/ArtemKech/Assignment-3-Kubernetes-Virtualization-/assets/84817894/304045c5-59d4-434a-8584-7fc2463164b6)
+
+After setting up cloud bucket for logs (where build logs will be stored), I added that to my `cloudbuild.yaml` config file
+![image](https://github.com/ArtemKech/Assignment-3-Kubernetes-Virtualization-/assets/84817894/02301b8a-37bb-4b29-9938-047efae51623)
 
 
