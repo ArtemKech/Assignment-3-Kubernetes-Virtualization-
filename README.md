@@ -262,7 +262,7 @@ steps:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1'
   - 'CLOUDSDK_CONTAINER_CLUSTER=gke_vast-service-390209_us-central1_staging'
 images:
-  - 'gcr.io/vast-service-390209/flask-app-image:$COMMIT_SHA=$(git rev-parse --short HEAD)'
+  - 'gcr.io/vast-service-390209/flask-app-image:latest'
 substitutions:
   _CLUSTER_NAME: staging
   
@@ -312,5 +312,8 @@ The error message in trigger says that the error occured because "there's an iss
 
 After setting up cloud bucket for logs (where build logs will be stored), I added that to my `cloudbuild.yaml` config file
 ![image](https://github.com/ArtemKech/Assignment-3-Kubernetes-Virtualization-/assets/84817894/02301b8a-37bb-4b29-9938-047efae51623)
+
+And finally (where I stuck), I have this error saying that I do not have access to the bucket:
+![image](https://github.com/ArtemKech/Assignment-3-Kubernetes-Virtualization-/assets/84817894/7db1ea11-9d6c-49fc-b415-2dbf1025c7a1)
 
 
