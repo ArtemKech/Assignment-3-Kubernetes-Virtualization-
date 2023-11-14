@@ -3,7 +3,7 @@ steps:
   args:
   - 'build'
   - '-t'
-  - 'gcr.io/vast-service-390209/flask-app-image:$COMMIT_SHA=$(git rev-parse --short HEAD)'
+  - 'gcr.io/vast-service-390209/flask-app-image:latest'
   - '.'
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
