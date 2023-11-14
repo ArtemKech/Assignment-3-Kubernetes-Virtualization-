@@ -3,7 +3,7 @@ steps:
   args:
   - 'build'
   - '-t'
-  - 'gcr.io/your-project-id/flask-app-image:$COMMIT_SHA'
+  - 'gcr.io/vast-service-390209/flask-app-image:$COMMIT_SHA=$(git rev-parse --short HEAD)'
   - '.'
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
@@ -12,8 +12,10 @@ steps:
   - 'k8s/deployment.yaml'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=your-cluster-name'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=gke_vast-service-390209_us-central1_staging'
 images:
-  - 'gcr.io/your-project-id/flask-app-image:$COMMIT_SHA'
+  - 'gcr.io/vast-service-390209/flask-app-image:$COMMIT_SHA=$(git rev-parse --short HEAD)'
 substitutions:
-  _CLUSTER_NAME: gke_vast-service-390209_us-central1_staging
+  _CLUSTER_NAME: staging
+  
+logsBucket: 'gs://logs-fadsladasasdsk-asadspp-budasdsckedst'
