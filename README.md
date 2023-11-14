@@ -117,8 +117,15 @@ kubectl apply -f redis-configmap.yaml
 kubectl get deployment redis-deployment
 kubectl get pods -l app=redis
 ```
-
 ![image](https://github.com/ArtemKech/Assignment-3-Kubernetes-Virtualization-/assets/84817894/4e0cff47-fad0-4784-955d-d5328d6c2fff)
+
+or 
+
+```shell
+kubectl get deployments | grep redis-deployment
+```
+
+![image](https://github.com/ArtemKech/Assignment-3-Kubernetes-Virtualization-/assets/84817894/9ac9c526-8991-4aa2-961b-85569ef6fef7)
 
 # Deployment of Flask application on Kubernetes
 
